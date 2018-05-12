@@ -1,0 +1,8 @@
+<p>{{miValor}}</p><!-- Variable desde el componente-->
+<a [href]="vinculo">ir al sitio op1</a><br><!-- Forma Correcta-->
+<a href="{{vinculo}}">ir al sitio op2</a><br><br><!-- Forma Funcional, pero no recomendable-->
+<button (click)="miFuncion()">Click Aca</button><!-- llamo a una funcion con el evento Click -->
+
+<!-- prueba de form -->
+<input type="text" [(ngModel)]="miVariable">
+<h1>{{miVariable}}</h1>
