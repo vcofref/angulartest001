@@ -5,7 +5,6 @@
 
 export const environment = {
   production: false,
-  cadenaPrueba: "Hola Always On",
   auth0: {
     domain: 'nicoavila.auth0.com',
     clientID: 'x568hv1fgFUsSilzptJfCTbNfT0rv4YU',
@@ -15,5 +14,5 @@ export const environment = {
     scope: 'openid profile email user_metadata'
   },
   returnUrl: 'http://localhost:4200',
-  apiEndpoint: 'http://localhost:3000/'
+  apiEndpoint: 'http://api.nicoavila.cl/'
 };
