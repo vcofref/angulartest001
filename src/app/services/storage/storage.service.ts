@@ -4,9 +4,14 @@ import { Injectable } from '@angular/core';
 export class StorageService {
   constructor() { }
 
-  public saveUser(token: string){
+  public saveUser(token: string, name: string, lastname: string, picture: string, user_id: string, email: string){
     return localStorage.setItem('currentUser', JSON.stringify({
-      token:token
+      token:token,
+      name:name,
+      latsname:lastname,
+      picture:picture,
+      user_id:user_id,
+      email:email
     }));
   }
   public getCurrentUser(){

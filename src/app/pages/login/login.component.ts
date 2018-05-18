@@ -26,12 +26,14 @@ export class LoginComponent implements OnInit {
   ) {
     this.webAuth.parseHash((err, authResult) => {
       if (authResult && authResult.accessToken && authResult.idToken) {
-        let datos={
-          auth0_user_id:authResult.idTokenPayload.sub
+        let datos = {
+          auth0_user_id: authResult.idTokenPayload.sub
         };
-        this.storage.saveUser(authResult.idToken);
-        this.api.informacionAuth0(authResult.idToken,datos).subscribe((resultado) => {
-          console.log(resultado)
+        this.api.informacionAuth0(authResult.idToken,datos).subscribe((resultado:any) => {
+          const name = resultado.data.user_metadata.name;
+          const lastname = resultado.data.user_metadata.lastname;
+          //console.log(resultado)
+          this.storage.saveUser(authResult.idToken, name, lastname, authResult.idTokenPayload.picture, authResult.idTokenPayload.sub, authResult.idTokenPayload.email);
         });
         console.log(authResult);
       } else if (err) {
