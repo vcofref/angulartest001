@@ -1,0 +1,30 @@
+<div class="row">
+  <div class="col s12">
+    <div class="row">
+      <div class="col s2">
+        <h4>Proyectos</h4>
+      </div>
+      <div class="col s2 offset-s6">
+        <a [routerLink]="['/dashboard/proyectos/nuevo/']" class="waves-effect waves-light btn-flat green">Nuevo</a>
+      </div>
+    </div>
+
+    <table class="table responsive-table striped">
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Opciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let project of projects">
+          <td>{{project.name}}</td>
+          <td>
+            <a [routerLink]="['/dashboard/proyectos/editar/',project.id]" class="botones waves-effect waves-teal btn-flat orange lighten-1">Editar</a>
+            <button (click)="eliminarProyecto(project.id)" class="botones waves-effect waves-teal btn-flat red lighten-1">Borrar</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

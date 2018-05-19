@@ -8,7 +8,7 @@ export class StorageService {
     return localStorage.setItem('currentUser', JSON.stringify({
       token:token,
       name:name,
-      latsname:lastname,
+      lastname:lastname,
       picture:picture,
       user_id:user_id,
       email:email

@@ -3,6 +3,7 @@ import { environment } from '../../../environments/environment';
 import * as auth0 from 'auth0-js';
 import { StorageService } from '../../services/storage/storage.service';
 import { ApiService }  from '../../services/api/api.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -22,7 +23,8 @@ export class LoginComponent implements OnInit {
   });
   constructor(
     private storage:StorageService,
-    private api:ApiService
+    private api:ApiService,
+    private router:Router
   ) {
     this.webAuth.parseHash((err, authResult) => {
       if (authResult && authResult.accessToken && authResult.idToken) {
@@ -34,6 +36,7 @@ export class LoginComponent implements OnInit {
           const lastname = resultado.data.user_metadata.lastname;
           //console.log(resultado)
           this.storage.saveUser(authResult.idToken, name, lastname, authResult.idTokenPayload.picture, authResult.idTokenPayload.sub, authResult.idTokenPayload.email);
+          this.router.navigateByUrl('/dashboard');
         });
         console.log(authResult);
       } else if (err) {

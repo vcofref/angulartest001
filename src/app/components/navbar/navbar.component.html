@@ -1,3 +1,10 @@
-<p>
-  navbar works!
-</p>
+<nav class="blue-grey lighten-1">
+    <div class="nav-wrapper">
+      <a href="#" class="brand-logo"><img class="logo" src="http://redigital.es/logo-web.png" alt="AlwaysOn"></a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a [routerLink]="['/dashboard/resumen']">Resumen</a></li>
+        <li><a [routerLink]="['/dashboard/proyectos']">Proyectos</a></li>
+        <li><a [routerLink]="['/dashboard/usuarios']">Usuarios</a></li>
+      </ul>
+    </div>
+  </nav>
